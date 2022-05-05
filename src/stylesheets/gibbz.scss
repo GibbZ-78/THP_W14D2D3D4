@@ -1,15 +1,108 @@
-$color-red: rgb(255, 20, 20);
+$color-white: rgb(255, 255, 255);
+$color-lighter: rgb(200, 200, 200);
+$color-lighter: rgb(145, 145, 145);
+$color-dark: rgb(110, 110, 110);
+$color-darker: rgb(55, 55, 55);
+$color-black: rgb(0, 0, 0);
+$color-link: rgb(0,102,153);
 
 @font-face {
   font-family: 'Videophreak';
   src: url('../fonts/Videophreak.ttf');
 }
 
-body {
-  background-image: url('../images/tokyo.jpg');
+@font-face {
+  font-family: 'Bhejeuct Gash Typeface';
+  src: url('../fonts/Bhejeuct Gash Typeface.ttf');
 }
 
-p {
-  color: $color-red;
-  font-family: 'Branda';
+@font-face {
+  font-family: '13_Misa';
+  src: url('../fonts/13_Misa.ttf');
+}
+
+body {
+  // background-image: url('../images/tokyo.jpg');
+	margin: 0;
+	padding: 0;
+  background: $color-black;
+}
+
+header {
+	background: $color-darker;
+	color: $color-white;
+	position: fixed;
+  top: 0;
+  width: 100%;
+	margin: 0;
+	padding: 5px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	font-family: '13_Misa';
+
+	a {
+		margin: 3px;
+	}
+}
+
+.result-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.list-heading {
+	background: $color-dark;
+	margin-top: 50px;
+}
+
+.page-list {
+	display: flex;
+	flex-direction: row;
+}
+
+.cardGame {
+  background: $color-darker;
+  color: $color-lighter;
+	border: 1px solid $color-white;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	width: 200px;
+  font-family: 'Videophreak';
+	box-shadow: 5px 5px 2px 1px $color-lighter;
+
+	img {
+		width: 200px;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+	}
+
+	h1 {
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		text-align: center;
+	}
+}
+
+a, a:visited {
+	text-decoration: none;
+	position: relative;
+	color: $color-link;
+	
+	&:after {
+		content: '';
+		height: 2px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		background: $color-link;
+		transition: 0.2s;
+	}
+
+	&:hover:after {
+		width: 100%;
+	}
 }

@@ -1,21 +1,22 @@
 const pageList = (argument = '') => {
 
-  console.log('Display LIST page', argument);
+  console.log('Displaying LIST page', argument);
 
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, '-');
 
     const displayResults = (articles) => {
-      const resultsContent = articles.map((article) => (
-        `<article class="cardGame">
+      const resultsContent = articles.map((article) => {
+        let myTmpHTML = `<article class="cardGame">
           <img src='${article.background_image}' width='200px'/>
-          <h1>${article.name}</h1>
-          <h2>${article.released}</h2>
-          <a href="#pagedetail/${article.id}">${article.id}</a>
-          <p>Mark: ${article.rating} / ${article.rating_top}</p>
-          <p>Play time: ${article.playtime} hours</p>
-        </article>`
-      ));
+          <h1>${article.name}</h1>`;
+        articles.platforms.forEach((myPlatform) => {
+          myTmpHTML += `<p>${myPlatform.id} | ${myPlatform.slug} | ${myPlatform.name}</p>`;
+        });
+        myTmpHTML += `<a href='#pagedetail/${article.id}'>See details</a>
+        </article>`;
+        return myTmpHTML;
+      });
       const resultsContainer = document.querySelector('.page-list .articles');
       resultsContainer.innerHTML = resultsContent.join("\n");
     };
@@ -44,8 +45,9 @@ const pageList = (argument = '') => {
 
   const render = () => {
     pageContent.innerHTML = `
+      <section id="listHeader" class="list-heading">
+      </section>
       <section class="page-list">
-        <div id="listHeader" class="list-heading"></div>
         <div class="articles">Loading...</div>
       </section>
     `;
