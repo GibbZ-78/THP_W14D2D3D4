@@ -1,3 +1,4 @@
+// Colors variabilization
 $color-white: rgb(255, 255, 255);
 $color-lighter: rgb(200, 200, 200);
 $color-lighter: rgb(145, 145, 145);
@@ -5,10 +6,17 @@ $color-dark: rgb(110, 110, 110);
 $color-darker: rgb(55, 55, 55);
 $color-black: rgb(0, 0, 0);
 $color-link: rgb(0,102,153);
+$color-red: rgb(206,10,50);
 
+// Fonts variabilization
 @font-face {
   font-family: 'Videophreak';
   src: url('../fonts/Videophreak.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
@@ -26,6 +34,8 @@ body {
 	margin: 0;
 	padding: 0;
   background: $color-black;
+	color: $color-white;
+	font-family: 'Roboto';
 }
 
 header {
@@ -34,7 +44,7 @@ header {
 	position: fixed;
   top: 0;
   width: 100%;
-	margin: 0;
+	margin: 0 3px 3px 3px;
 	padding: 5px;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -43,6 +53,21 @@ header {
 	a {
 		margin: 3px;
 	}
+
+	.brand {
+		font-weight: bold;
+		font-size: 200%;
+		color: $color-red;
+		text-decoration: none;
+	}
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
 }
 
 .result-container {
@@ -63,12 +88,13 @@ header {
 .cardGame {
   background: $color-darker;
   color: $color-lighter;
-	border: 1px solid $color-white;
+	border: 1px solid $color-lighter;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	width: 200px;
   font-family: 'Videophreak';
-	box-shadow: 5px 5px 2px 1px $color-lighter;
+	box-shadow: 2px 2px 2px 1px $color-dark;
+	margin-bottom: 5px;
 
 	img {
 		width: 200px;
@@ -84,12 +110,43 @@ header {
 	h2 {
 		text-align: center;
 	}
+
+	span {
+		.linux {
+			height: 32px;
+			background-image: url('../images/linux.svg');
+		}
+		.pc {
+			height: 32px;
+			background-image: url('../images/windows.svg');
+		}
+		.switch {
+			height: 32px;
+			background-image: url('../images/switch.svg');
+		}
+		.xbox {
+			height: 32px;
+			background-image: url('../images/xbox.svg');
+		}
+		.mobile {
+			height: 32px;
+			background-image: url('../images/mobile.svg');
+		}
+		.ps {
+			height: 32px;
+			background-image: url('../images/ps4.svg');
+		}
+		.web {
+			height: 32px;
+			background-image: url('../images/web.svg');
+		}
+	}
 }
 
-a, a:visited {
+a.animated-link, a.animated-link:visited {
 	text-decoration: none;
 	position: relative;
-	color: $color-link;
+	color: $color-white;
 	
 	&:after {
 		content: '';

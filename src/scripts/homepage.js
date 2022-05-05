@@ -2,20 +2,27 @@ const homePage = (argument = '') => {
 
   console.log('Displaying HOME page', argument);
 
+  console.log("  > Showing INTRODUCTION paragraphs");
+  pageIntroduction.classList.remove("hide");
+  pageIntroduction.classList.add("show");
+
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, '-');
 
     const displayResults = (articles) => {
-      const resultsContent = articles.map((article) => (
-        `<article class="cardGame">
+      const resultsContent = articles.map((article) => {
+        let myTmpHTML = `<article class="cardGame">
           <img src='${article.background_image}' width='200px'/>
-          <h1>${article.name}</h1>
-          <h2>${article.released}</h2>
-          <a href="#pagedetail/${article.id}">${article.id}</a>
-          <p>Mark: ${article.rating} / ${article.rating_top}</p>
-          <p>Play time: ${article.playtime} hours</p>
-        </article>`
-      ));
+          <h1>${article.name}</h1>`;
+        console.table(article.platforms);
+        let myTmpPlatforms = article.platforms.map((myPlatform) => (
+          `<span class='${myPlatform.platform.slug}'></span>`
+        ));
+        myTmpHTML += myTmpPlatforms.join("\n");
+        myTmpHTML += `<a href='#pagedetail/${article.id}'>See details</a>
+        </article>`;
+        return myTmpHTML;
+      });
       const resultsContainer = document.querySelector('.page-list .articles');
       resultsContainer.innerHTML = resultsContent.join("\n");
     };
@@ -40,17 +47,17 @@ const homePage = (argument = '') => {
     };
 
     let currentYEar = new Date().getFullYear();
-    let myOrdering = "released";
+    let mySortOrder = "released";
     console.log(`  > Using ${currentYEar} as the current year for upcoming games' releases`);
 
-    fetchList(`https://api.rawg.io/api/games?key=${process.env.API_KEY}&dates=${currentYEar}-01-01,${currentYEar}-12-31&ordering=${myOrdering}`, cleanedArgument);
+    fetchList(`https://api.rawg.io/api/games?key=${process.env.API_KEY}&dates=${currentYEar}-01-01,${currentYEar}-12-31&ordering=${mySortOrder}`, cleanedArgument);
   };
 
   const render = () => {
     pageContent.innerHTML = `
       <section class="page-list">
         <div id="listHeader" class="list-heading"></div>
-        <div class="articles">Loading...</div>
+        <div class="articles grid">Loading...</div>
       </section>
     `;
 

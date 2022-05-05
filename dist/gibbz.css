@@ -6,6 +6,10 @@
   src: url(9a02de9e536394ee0026.ttf);
 }
 @font-face {
+  font-family: "Roboto";
+  src: url(a8d6ac03c7b96b7acb62.ttf);
+}
+@font-face {
   font-family: "Bhejeuct Gash Typeface";
   src: url(899c75ce0160eb41ce37.ttf);
 }
@@ -17,6 +21,8 @@ body {
   margin: 0;
   padding: 0;
   background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-family: "Roboto";
 }
 
 header {
@@ -25,7 +31,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  margin: 0;
+  margin: 0 3px 3px 3px;
   padding: 5px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -33,6 +39,20 @@ header {
 }
 header a {
   margin: 3px;
+}
+header .brand {
+  font-weight: bold;
+  font-size: 200%;
+  color: rgb(206, 10, 50);
+  text-decoration: none;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 .result-container {
@@ -53,12 +73,13 @@ header a {
 .cardGame {
   background: rgb(55, 55, 55);
   color: rgb(145, 145, 145);
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid rgb(145, 145, 145);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   width: 200px;
   font-family: "Videophreak";
-  box-shadow: 5px 5px 2px 1px rgb(145, 145, 145);
+  box-shadow: 2px 2px 2px 1px rgb(110, 110, 110);
+  margin-bottom: 5px;
 }
 .cardGame img {
   width: 200px;
@@ -72,13 +93,41 @@ header a {
 .cardGame h2 {
   text-align: center;
 }
+.cardGame span .linux {
+  height: 32px;
+  background-image: url(9a317a7739e9a5267703.svg);
+}
+.cardGame span .pc {
+  height: 32px;
+  background-image: url(65e5f871b7c679c57ad2.svg);
+}
+.cardGame span .switch {
+  height: 32px;
+  background-image: url(96438e0fb90b0c002205.svg);
+}
+.cardGame span .xbox {
+  height: 32px;
+  background-image: url(c44b5578fcccee020fd9.svg);
+}
+.cardGame span .mobile {
+  height: 32px;
+  background-image: url(1aa15eb6e63595f0c01e.svg);
+}
+.cardGame span .ps {
+  height: 32px;
+  background-image: url(efe97f94b8021d7ce5e8.svg);
+}
+.cardGame span .web {
+  height: 32px;
+  background-image: url(c839dea447c260cf488c.svg);
+}
 
-a, a:visited {
+a.animated-link, a.animated-link:visited {
   text-decoration: none;
   position: relative;
-  color: rgb(0, 102, 153);
+  color: rgb(255, 255, 255);
 }
-a:after, a:visited:after {
+a.animated-link:after, a.animated-link:visited:after {
   content: "";
   height: 2px;
   position: absolute;
@@ -88,6 +137,6 @@ a:after, a:visited:after {
   background: rgb(0, 102, 153);
   transition: 0.2s;
 }
-a:hover:after, a:visited:hover:after {
+a.animated-link:hover:after, a.animated-link:visited:hover:after {
   width: 100%;
 }

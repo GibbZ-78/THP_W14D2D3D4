@@ -8,7 +8,13 @@
     "build": "webpack",
     "server": "webpack serve"
   },
-  "keywords": ["webpack", "SPA", "RAWG", "THP", "video games"],
+  "keywords": [
+    "webpack",
+    "SPA",
+    "RAWG",
+    "THP",
+    "video games"
+  ],
   "author": "GibbZ aka Jean-Baptiste VIDAL",
   "license": "ISC",
   "devDependencies": {
@@ -25,5 +31,8 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "masonry-layout": "^4.2.2"
   }
 }

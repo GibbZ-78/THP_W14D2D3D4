@@ -2,6 +2,10 @@ const pageDetail = (argument) => {
 
   console.log('Displaying DETAIL page', argument);
 
+  console.log("  > Hidding INTRODUCTION paragraphs");
+  pageIntroduction.classList.add("hide");
+  pageIntroduction.classList.remove("show");
+
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, "-");
 

@@ -2,21 +2,24 @@ const pageList = (argument = '') => {
 
   console.log('Displaying LIST page', argument);
 
+  console.log("  > Hidding INTRODUCTION paragraphs");
+  pageIntroduction.classList.add("hide");
+  pageIntroduction.classList.remove("show");
+
   const preparePage = () => {
     const cleanedArgument = argument.trim().replace(/\s+/g, '-');
 
     const displayResults = (articles) => {
-      const resultsContent = articles.map((article) => {
-        let myTmpHTML = `<article class="cardGame">
+      const resultsContent = articles.map((article) => (
+        `<article class="cardGame">
           <img src='${article.background_image}' width='200px'/>
-          <h1>${article.name}</h1>`;
-        articles.platforms.forEach((myPlatform) => {
-          myTmpHTML += `<p>${myPlatform.id} | ${myPlatform.slug} | ${myPlatform.name}</p>`;
-        });
-        myTmpHTML += `<a href='#pagedetail/${article.id}'>See details</a>
-        </article>`;
-        return myTmpHTML;
-      });
+          <h1>${article.name}</h1>
+          <h2>${article.released}</h2>
+          <a href="#pagedetail/${article.id}">${article.id}</a>
+          <p>Mark: ${article.rating} / ${article.rating_top}</p>
+          <p>Play time: ${article.playtime} hours</p>
+        </article>`
+      ));
       const resultsContainer = document.querySelector('.page-list .articles');
       resultsContainer.innerHTML = resultsContent.join("\n");
     };
