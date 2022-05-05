@@ -1,5 +1,6 @@
 import "../stylesheets/gibbz.scss";
 import routes from "./routes.js";
+import myFooterContent from "./footer.js";
 
 function callRoute() {
   const { hash } = window.location;
@@ -16,3 +17,5 @@ function callRoute() {
 
 window.addEventListener('hashchange', () => callRoute());
 window.addEventListener('DOMContentLoaded', () => callRoute());
+
+document.getElementsByTagName("footer")[0].innerHTML = myFooterContent();

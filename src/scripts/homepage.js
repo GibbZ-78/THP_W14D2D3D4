@@ -12,14 +12,17 @@ const homePage = (argument = '') => {
     const displayResults = (articles) => {
       const resultsContent = articles.map((article) => {
         let myTmpHTML = `<article class="cardGame">
-          <img src='${article.background_image}' width='200px'/>
-          <h1>${article.name}</h1>`;
-        console.table(article.platforms);
+          <img src="${(article.background_image ? article.background_image : 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg')}" width="200px"/>
+          <p class="game-name">${article.name}</p>
+          <p class="release-date">${article.released}</p>`;
+        //console.table(article.platforms);
         let myTmpPlatforms = article.platforms.map((myPlatform) => (
-          `<span class='${myPlatform.platform.slug}'></span>`
+          `<div class='platform ${myPlatform.platform.slug}' data-platform=''></div>`
         ));
-        myTmpHTML += myTmpPlatforms.join("\n");
-        myTmpHTML += `<a href='#pagedetail/${article.id}'>See details</a>
+        //console.log(myTmpPlatforms);
+        myTmpHTML += "<div class='flex-start'>\n" + myTmpPlatforms.join("\n") + "</div>\n";
+        myTmpHTML += "<hr />\n";
+        myTmpHTML += `<a href='#pagedetail/${article.id}' class='animated-link'>See details</a>
         </article>`;
         return myTmpHTML;
       });
@@ -29,10 +32,12 @@ const homePage = (argument = '') => {
 
     const displayResultsHeader = (totalResults, before, after) => {
       let myHeader = document.getElementById("listHeader");
+      let myBefore = before ? before.split("page=")[1]: "";
+      let myAfter = after ? after.split("page=")[1]: "";
       myHeader.innerHTML=`
-      <span><a href='${before}'><< </a></span>
+      <span><a href='${myBefore}'> <i class="bi bi-caret-left-square"></i></a></span>
       <span>Number of results: ${totalResults}</span>
-      <span><a href='${after}'> >></a></span>
+      <span><a href='${myAfter}'> <i class="bi bi-caret-right-square"></i></a></span>
       `;
     }
 
@@ -56,8 +61,8 @@ const homePage = (argument = '') => {
   const render = () => {
     pageContent.innerHTML = `
       <section class="page-list">
-        <div id="listHeader" class="list-heading"></div>
-        <div class="articles grid">Loading...</div>
+        <div id="listHeader" class="list-heading-2nd"></div>
+        <div class="articles flex-column">Loading...</div>
       </section>
     `;
 

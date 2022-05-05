@@ -48,7 +48,7 @@ const pageList = (argument = '') => {
 
   const render = () => {
     pageContent.innerHTML = `
-      <section id="listHeader" class="list-heading">
+      <section id="listHeader" class="list-heading-1st">
       </section>
       <section class="page-list">
         <div class="articles">Loading...</div>
