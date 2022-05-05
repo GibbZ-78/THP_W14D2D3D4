@@ -13,11 +13,12 @@ GibbZ' Games' Lair&trade; is based on the [RAWG API](https://rawg.io/apidocs)
 1. Clone the current :octocat: repository to your local :computer: using something as simple as `git clone .`
 2. Move to the just-brought-in directory
 3. Create a ".env" file in the directory then edit it to add the following line `API_KEY="<your complete RAWG key>"` into it
-4. First launch the bundling and minimizing of the different files by typing `npm run build`
-5. Wait... Wait again... Yes, I know, it is soooo long and sloooow
-6. Still waiting? Congratulations! You should now see all builds passed and can now enter `npm run server` to see the result
-7. If your web broser hasn't launched a new tab automatically then (i) insult it before (ii) browsing: `http://localhost:8000/`
-8. You can finally relax and - hopefully :sweat: - have fun surfing :surfer: and exploring :eyes: GibbZ' Games' Lair
+4. First make sure to install all dependencies via the `npm install` command, ran within this same cloned directory
+5. Then launch the bundling and minimizing of the different files by typing `npm run build`
+6. Wait... Wait again... Yes, I know, it is soooo long and sloooow
+7. Still waiting? Congratulations! You should now see all builds passed and can now enter `npm run server` to see the result
+8. If your web broser hasn't launched a new tab automatically then (i) insult it before (ii) browsing: `http://localhost:8000/`
+9. You can finally relax and - hopefully :sweat: - have fun surfing :surfer: and exploring :eyes: GibbZ' Games' Lair
 
 ### :computer: Development Environment
 
