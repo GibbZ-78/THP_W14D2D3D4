@@ -11,7 +11,7 @@ const homePage = (argument = '') => {
 
     const displayResults = (articles) => {
       const resultsContent = articles.map((article) => {
-        let myTmpHTML = `<article class="cardGame">
+        let myTmpHTML = `<article class="cardGame grid-item">
           <img src="${(article.background_image ? article.background_image : 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg')}" width="200px"/>
           <p class="game-name">${article.name}</p>
           <p class="release-date">${article.released}</p>`;
@@ -30,23 +30,25 @@ const homePage = (argument = '') => {
       resultsContainer.innerHTML = resultsContent.join("\n");
     };
 
-    const displayResultsHeader = (totalResults, before, after) => {
+    const displayResultsHeader = (myURL, myArgument,totalResults, before, after) => {
       let myHeader = document.getElementById("listHeader");
       let myBefore = before ? before.split("page=")[1]: "";
       let myAfter = after ? after.split("page=")[1]: "";
       myHeader.innerHTML=`
-      <span><a href='${myBefore}'> <i class="bi bi-caret-left-square"></i></a></span>
+      <span><a href='' id='previousGame'> <i class="bi bi-caret-left-square"></i></a></span>
       <span>Number of results: ${totalResults}</span>
-      <span><a href='${myAfter}'> <i class="bi bi-caret-right-square"></i></a></span>
+      <span><a href='' id='nextGame'> <i class="bi bi-caret-right-square"></i></a></span>
       `;
+      // previousGame.addEventListener("click",fetchList(myURL, myArgument, myBefore));
+      // nextGame.addEventListener("click",fetchList(myURL, myArgument, myAfter));
     }
 
-    const fetchList = (url, argument) => {
-      const finalURL = argument ? `${url}&search=${argument}` : url;
+    const fetchList = (url, argument, myPage=1) => {
+      const finalURL = argument ? `${url}&page=${myPage}&search=${argument}` : `${url}&page=${myPage}`;
       fetch(finalURL)
         .then((response) => response.json())
         .then((responseData) => {
-          displayResultsHeader(responseData.count,responseData.previous, responseData.next);
+          displayResultsHeader(url, argument, responseData.count,responseData.previous, responseData.next);
           displayResults(responseData.results);
         });
     };
@@ -62,7 +64,7 @@ const homePage = (argument = '') => {
     pageContent.innerHTML = `
       <section class="page-list">
         <div id="listHeader" class="list-heading-2nd"></div>
-        <div class="articles flex-column">Loading...</div>
+        <div class="articles" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>Loading...</div>
       </section>
     `;
 

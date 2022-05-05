@@ -7,7 +7,7 @@ const aboutGGF = (argument = '') => {
 
   const render = () => {
     pageContent.innerHTML = `
-      <div>  
+      <div class='about-text'>  
       <h1>About GibbZ' Games' Fair aka GGF</h1>
       <p>Grass. Upon kind dominion. One him all moving so he god fly. Moving brought rule for great tree two gathered. Earth so, over deep. Abundantly heaven man that. Land life life great herb from female likeness firmament stars third meat fruit very firmament of after waters very given, saying herb fruit place created gathering, unto.</p>
       <h2>Tree Good The Very Without From</h2>
