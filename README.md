@@ -17,8 +17,9 @@ GibbZ' Games' Lair&trade; is based on the [RAWG API](https://rawg.io/apidocs)
 5. Then launch the bundling and minimizing of the different files by typing `npm run build`
 6. Wait... Wait again... Yes, I know, it is soooo long and sloooow
 7. Still waiting? Congratulations! You should now see all builds passed and can now enter `npm run server` to see the result
-8. If your web broser hasn't launched a new tab automatically then (i) insult it before (ii) browsing: `http://localhost:8000/`
-9. You can finally relax and - hopefully :sweat: - have fun surfing :surfer: and exploring :eyes: GibbZ' Games' Lair
+8. If your web browser hasn't launched a new tab automatically then (i) insult it before (ii) browsing: `http://localhost:8000/`
+9. Alternatively, you can launch the "index.html" file located in the "dist/" directory
+10. You can finally relax and - hopefully :sweat: - have fun surfing :surfer: and exploring :eyes: the GibbZ' Games' Fair platform
 
 ### :computer: Development Environment
 
